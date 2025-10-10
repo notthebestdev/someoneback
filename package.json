@@ -1,18 +1,23 @@
 {
 	"name": "someoneback",
 	"version": "0.0.0",
+	"type": "module",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"test": "vitest",
+		"register": "tsc && node --env-file=.env dist/register.js",
+		"deploy": "wrangler deploy --minify",
+		"log": "wrangler tail",
 		"cf-typegen": "wrangler types"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
+		"@types/node": "^24.7.1",
+		"discord-api-types": "^0.38.29",
 		"typescript": "^5.5.2",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.42.2"
+	},
+	"dependencies": {
+		"discord-hono": "^0.20.1"
 	}
 }
