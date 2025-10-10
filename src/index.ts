@@ -2,13 +2,26 @@ import { Button, Components, DiscordHono } from 'discord-hono'
 
 const app = new DiscordHono()
 	.command('someone', async c => {
+		// check if the user has permission to mention everyone
+		const memberPerms = c.interaction.member?.permissions;
+		if (
+			!memberPerms ||
+			(
+				Array.isArray(memberPerms)
+					? !memberPerms.includes('MentionEveryone')
+					: (typeof memberPerms === 'number' ? (memberPerms & (1 << 9)) === 0 : true)
+			)
+		) {
+			return c.res('❌ **You do not have permission to mention everyone.**');
+		}
+
 		// get guild id
 		const guildId = c.interaction.guild?.id;
-		if (!guildId) return c.res('Guild not found.');
+		if (!guildId) return c.res('❌ **Guild not found.**');
 		
 		const env = c.env as { DISCORD_TOKEN?: string };
 		const token = env.DISCORD_TOKEN || process.env.BOT_TOKEN;
-		if (!token) return c.res('Bot token not found in env.');
+		if (!token) return c.res('❌ **Bot token not found in env.**');
 
 		// fetch members, limit to 1000 due to discord api limitation
 		const resp = await fetch(`https://discord.com/api/v10/guilds/${guildId}/members?limit=1000`, {
@@ -25,21 +38,26 @@ const app = new DiscordHono()
 			}
 		}
 		const allMembers = await resp.json() as Array<{ user?: { id?: string, username?: string, bot?: boolean } }>;
-		if (allMembers.length === 0) return c.res('No members found.');
+		if (allMembers.length === 0) return c.res('❌ **No members found.**');
 
-		// apply bot filter if requested
-		const filtered = ignoreBots
-			? allMembers.filter(m => !(m.user && (m.user as any).bot === true))
-			: allMembers;
+		// apply bot filter if requested and always exclude self
+		const selfId = c.interaction.member?.user?.id;
+		const filtered = allMembers.filter(m => {
+			const isBot = m.user?.bot === true;
+		 const isSelf = m.user?.id === selfId;
+			if (ignoreBots && isBot) return false;
+			if (isSelf) return false;
+			return true;
+		});
 
-		if (filtered.length === 0) return c.res('No members match the filter (all results were bots).');
+		if (filtered.length === 0) return c.res('❌ **No members match the filter (all results were bots or yourself).**');
 
 		// pick a random member
 		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
 		const username = randomMember.user?.username || 'Unknown user';
 		const userId = randomMember.user?.id;
-		if (!userId) return c.res('User ID not found.');
-		
+		if (!userId) return c.res('❌ **User ID not found.**');
+
 		return c.res(`**🎉 <@${userId}>, you have been chosen!**`);
 	})
 	.command('ping', async c => {
