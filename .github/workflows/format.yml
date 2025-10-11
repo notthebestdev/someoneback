@@ -22,13 +22,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Format code with Prettier
         run: npx prettier --write .
-        
+
       - name: Create branch & PR with GITHUB_TOKEN (exclude .github changes)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
