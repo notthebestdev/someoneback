@@ -1,4 +1,4 @@
-import { Button, Components, DiscordHono } from 'discord-hono';
+import { DiscordHono } from 'discord-hono';
 
 const app = new DiscordHono()
 	.command('someone', async (c) => {
@@ -50,7 +50,6 @@ const app = new DiscordHono()
 
 		// pick a random member
 		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
-		const username = randomMember.user?.username || 'Unknown user';
 		const userId = randomMember.user?.id;
 		if (!userId) return c.res('❌ **User ID not found.**');
 

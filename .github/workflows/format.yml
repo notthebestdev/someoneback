@@ -15,7 +15,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-          # persist-credentials left as default (true) so GITHUB_TOKEN can push
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -29,34 +28,26 @@ jobs:
       - name: Format code with Prettier
         run: npx prettier --write .
 
-      - name: Create branch & PR with GITHUB_TOKEN (exclude .github changes)
+      - name: Commit & push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
           BASE_BRANCH: main
         run: |
-          # do not push workflow file changes: unstaged/untracked .github changes
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # stage all, then unstage .github dir to avoid updating workflow files
+          # stage all formatted changes
           git add -A
-          git reset -- .github || true
 
           if git diff --cached --quiet; then
-            echo "No changes to commit (excluding .github)."
+            echo "No changes to commit."
             exit 0
           fi
 
-          BRANCH="prettier/fix-${GITHUB_SHA:0:7}"
-          git checkout -b "${BRANCH}"
           git commit -m "style: format code with prettier"
 
-          # push using the provided GITHUB_TOKEN (actions/checkout persisted credentials)
-          git push origin "${BRANCH}"
+          git fetch origin "${BASE_BRANCH}"
+          git checkout "${BASE_BRANCH}" || git checkout -b "${BASE_BRANCH}" origin/"${BASE_BRANCH}"
+          git pull --rebase origin "${BASE_BRANCH}" || true
 
-          # create a PR using the GITHUB_TOKEN
-          echo "Creating pull request for ${BRANCH} -> ${BASE_BRANCH}"
-          pr_payload=$(printf '{"title":"style: format code with prettier","head":"%s","base":"%s","body":"Automated formatting via Prettier."}' "${BRANCH}" "${BASE_BRANCH}")
-          curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3+json" \
-            -d "${pr_payload}" "https://api.github.com/repos/${REPO}/pulls" | sed -n 's/.*"html_url":[[:space:]]*"\([^"]*\)".*/\1/p' || true
+          git push origin "${BASE_BRANCH}"
