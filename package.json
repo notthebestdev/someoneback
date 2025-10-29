@@ -8,22 +8,16 @@
 		"deploy": "wrangler deploy --minify",
 		"log": "wrangler tail",
 		"cf-typegen": "wrangler types",
-		"lint": "eslint ."
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.9.12",
-		"@eslint/js": "^9.38.0",
-		"@types/node": "^24.7.1",
-		"discord-api-types": "^0.38.29",
-		"eslint": "^9.38.0",
-		"globals": "^16.4.0",
+		"@types/node": "^24.9.1",
+		"discord-api-types": "^0.38.30",
 		"typescript": "^5.5.2",
-		"typescript-eslint": "^8.46.2",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.42.2"
 	},
 	"dependencies": {
-		"discord-hono": "^0.20.1",
-		"jiti": "^2.6.1"
+		"discord-hono": "^0.20.1"
 	}
 }
