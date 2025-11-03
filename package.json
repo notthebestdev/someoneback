@@ -11,7 +11,7 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.10.1",
+		"@cloudflare/vitest-pool-workers": "^0.10.3",
 		"@types/node": "^24.10.0",
 		"discord-api-types": "^0.38.32",
 		"typescript": "^5.5.2",
