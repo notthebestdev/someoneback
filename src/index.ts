@@ -1,6 +1,16 @@
 import { DiscordHono } from 'discord-hono';
 
 const app = new DiscordHono()
+	.command('help', async (c) => {
+		const helpMessage = `**Available Commands:**
+- \`/someone [ignore-bots]\`: Ping a random member from the server. Optionally ignore bot users.
+- \`/ping\`: Replies with the current ping.
+- \`/help\`: Provides help information for available commands.
+
+To use a command, type \`/\` followed by the command name. For example, to ping a random member, type \`/someone\`. You can add the optional parameter \`ignore-bots\` to exclude bot users from being selected.`;
+
+		return c.res(helpMessage);
+	})
 	.command('someone', async (c) => {
 		// check if user has permission to mention everyone
 		const memberPermissions = c.interaction.member?.permissions;
