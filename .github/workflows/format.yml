@@ -12,18 +12,18 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '18'
+          node-version: 'latest'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit --silent || npm install --no-audit --silent
 
       - name: Format code with Prettier
         run: npx prettier --write .
@@ -44,7 +44,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "style: format code with prettier"
+          git commit -m "🎨 style: format code with prettier"
 
           git fetch origin "${BASE_BRANCH}"
           git checkout "${BASE_BRANCH}" || git checkout -b "${BASE_BRANCH}" origin/"${BASE_BRANCH}"
