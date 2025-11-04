@@ -1,5 +1,17 @@
 # SomeoneBack
 
+<!-- markdownlint-disable -->
+<p align="center">
+ <a href="https://github.com/notthebestdev/someoneback/actions/workflows/release.yml">
+  <img src="https://github.com/notthebestdev/someoneback/actions/workflows/release.yml/badge.svg" alt="Release"/>
+ </a>
+ <img src="https://badges.ws/github/l/notthebestdev/someoneback" alt="License"/>
+ <img src="https://badges.ws/github/stars/notthebestdev/someoneback" alt="Stars"/>
+ <img src="https://badges.ws/github/forks/notthebestdev/someoneback" alt="Forks"/>
+ <img src="https://badges.ws/github/last-commit/notthebestdev/someoneback" alt="Last Commit"/>
+</p>
+<!-- markdownlint-restore -->
+
 SomeoneBack brings back Discord's classic April Fools' "@someone" mention from March 31, 2018. This bot lets you randomly mention a user—perfect for giveaways, selections, and more.
 
 - [Invite SomeoneBack to your Discord server](https://discord.com/oauth2/authorize?client_id=1235630388404289658).
