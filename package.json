@@ -12,16 +12,16 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.9.12",
-		"@types/node": "^24.9.1",
-		"discord-api-types": "^0.38.30",
+		"@cloudflare/vitest-pool-workers": "^0.10.3",
+		"@types/node": "^24.10.0",
+		"discord-api-types": "^0.38.32",
 		"typescript": "^5.5.2",
-		"vitest": "~3.2.0",
-		"wrangler": "^4.42.2"
+		"vitest": "~4.0.6",
+		"wrangler": "^4.45.2"
 	},
 	"dependencies": {
 		"discord-hono": "^0.20.1",
-		"eslint": "^9.38.0",
+		"eslint": "^9.39.0",
 		"jiti": "^2.6.1",
 		"prettier": "^3.6.2",
 		"typescript-eslint": "^8.46.2"
