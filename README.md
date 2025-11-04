@@ -1,7 +1,8 @@
 <p align="center">
  <img src="/.github/assets/icon.webp" alt="SomeoneBack Icon" width="128" height="128"/>
- <h1>SomeoneBack</h1>
 </p>
+
+<h1 align="center">SomeoneBack</h1>
 
 <p align="center">
  <a href="https://github.com/notthebestdev/someoneback/actions/workflows/release.yml">
