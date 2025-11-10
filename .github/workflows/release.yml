@@ -58,12 +58,9 @@ jobs:
               run: |
                   npm version prerelease --preid=${{ env.HASH }} --no-git-tag-version
 
-            - name: Create Release
-              uses: ncipollo/release-action@v1.20.0
-              with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                tag: ${{ env.HASH }}
-                generateReleaseNotes: true
-                name: ${{ env.HASH }}
-                draft: false
-                prerelease: false
+            - name: Create Git tag
+              run: |
+                git config user.name "github-actions[bot]"
+                git config user.email "github-actions[bot]@users.noreply.github.com"
+                git tag ${{ env.HASH }}
+                git push origin ${{ env.HASH }}
