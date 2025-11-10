@@ -63,7 +63,7 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 		const userId = randomMember.user?.id;
 		if (!userId) return c.res('❌ **User ID not found.**');
 
-		return c.res(`**🎉 <@${userId}>, you have been chosen!**`);
+		return c.res(`**<a:confetti:1437507874614939789> <@${userId}>, you have been chosen!**`);
 	})
 	.command('ping', async (c) => {
 		const start = Date.now();
