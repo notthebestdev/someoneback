@@ -17,7 +17,7 @@
 		"discord-api-types": "^0.38.32",
 		"typescript": "^5.5.2",
 		"vitest": "^3.2.4",
-		"wrangler": "^4.45.4"
+		"wrangler": "^4.46.0"
 	},
 	"dependencies": {
 		"discord-hono": "^0.20.1",
