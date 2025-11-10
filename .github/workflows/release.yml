@@ -20,14 +20,39 @@ jobs:
               uses: actions/setup-node@v6
               with:
                   node-version: 'latest'
+                  cache: 'npm'
+                  cache-dependency-path: '**/package-lock.json'
 
             - name: Install dependencies
               run: npm ci --prefer-offline --no-audit --silent || npm install --no-audit --silent
 
             - name: Lint project
               run: npm run lint
+
+    register:
+      needs: check-lint
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v5
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v6
+          with:
+                node-version: 'latest'
+                cache: 'npm'
+                cache-dependency-path: '**/package-lock.json'
+
+        - name: Install dependencies
+          run: npm ci --prefer-offline --no-audit --silent || npm install --no-audit --silent
+
+        - name: Register commands for Discord
+          run: npm run register
+          env:
+            DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+            DISCORD_APPLICATION_ID: ${{ secrets.DISCORD_APPLICATION_ID }}
     deploy:
-        needs: check-lint
+        needs: register
         runs-on: ubuntu-latest
         timeout-minutes: 120
         steps:
@@ -38,6 +63,9 @@ jobs:
           uses: actions/setup-node@v6
           with:
                 node-version: 'latest'
+                cache: 'npm'
+                cache-dependency-path: '**/package-lock.json'
+
         - name: Install dependencies
           run: npm ci --prefer-offline --no-audit --silent || npm install --no-audit --silent
         - name: Build & Deploy Worker
