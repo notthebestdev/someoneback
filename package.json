@@ -21,7 +21,7 @@
 	},
 	"dependencies": {
 		"discord-hono": "^0.20.1",
-		"eslint": "^9.39.0",
+		"eslint": "^9.39.1",
 		"jiti": "^2.6.1",
 		"prettier": "^3.6.2",
 		"typescript-eslint": "^8.46.4"
