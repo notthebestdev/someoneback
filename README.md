@@ -17,7 +17,7 @@
 
 SomeoneBack brings back Discord's classic April Fools' "@someone" mention from March 31, 2018. This bot lets you randomly mention a user—perfect for giveaways, selections, and more.
 
-- [Invite SomeoneBack to your Discord server](https://discord.com/oauth2/authorize?client_id=1235630388404289658) <img src="/.github/assets/discord.svg" align="left" width="24">.
+- [Invite SomeoneBack to your Discord server](https://discord.com/oauth2/authorize?client_id=1235630388404289658).
 
 ## Getting Started <img src="/.github/assets/sparkles.svg" align="left" width="24">
 
