@@ -9,12 +9,14 @@
 		"log": "wrangler tail",
 		"cf-typegen": "wrangler types",
 		"lint": "eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"prepare": "husky"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.10.5",
 		"@types/node": "^24.10.0",
 		"discord-api-types": "^0.38.33",
+		"husky": "^9.1.7",
 		"typescript": "^5.5.2",
 		"vitest": "^3.2.4",
 		"wrangler": "^4.45.4"
