@@ -165,3 +165,8 @@ dist
 .env*
 !.env.example
 .wrangler/
+
+# OS
+
+.DS_Store
+Thumbs.db
