@@ -1,6 +1,6 @@
 {
 	"name": "someoneback",
-	"version": "0.0.0",
+	"version": "0.0.1-4e86e46.0",
 	"type": "module",
 	"private": true,
 	"scripts": {
