@@ -11,11 +11,11 @@ export default async function getLanguageFromServer(serverId: string, c: Command
 	});
 
 	if (!guild.ok) {
-		// get serialized_source_guild.preferred_locale from response
-		const data = (await guild.json()) as { serialized_source_guild?: { preferred_locale?: string } };
-		return data?.serialized_source_guild?.preferred_locale || 'en';
+		// request failed, fall back to default language
+		return 'en';
 	}
 
-	const data = (await guild.json()) as { language?: string };
-	return data.language || 'en';
+	// get serialized_source_guild.preferred_locale from successful response
+	const data = (await guid.json()) as { serialized_source_guild?: { preferred_locale?: string } };
+	return data?.serialized_source_guild?.preferred_locale || 'en';
 }
