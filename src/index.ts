@@ -57,7 +57,8 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 			return true;
 		});
 
-		if (filtered.length === 0) return c.res('<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**');
+		if (filtered.length === 0)
+			return c.res('<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**');
 
 		// pick a random member
 		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
