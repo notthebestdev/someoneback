@@ -1,4 +1,7 @@
 import { DiscordHono } from 'discord-hono';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { parse } from 'yaml';
+import ky from 'ky';
 
 const app = new DiscordHono()
 	.command('help', async (c) => {
@@ -31,7 +34,8 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 		if (!token) return c.res('<a:crossmark:1454281378295451648> **Bot token not found in env.**');
 
 		// fetch members, limit to 1000 due to discord api limitation
-		const resp = await fetch(`https://discord.com/api/v10/guilds/${guildId}/members?limit=1000`, {
+		const resp = await ky.get(`https://discord.com/api/v10/guilds/${guildId}/members`, {
+			searchParams: { limit: '1000' },
 			headers: { Authorization: `Bot ${token}` },
 		});
 		if (!resp.ok) return c.res(`Failed to fetch members: ${resp.status} ${resp.statusText}`);
