@@ -1,6 +1,4 @@
 import { DiscordHono } from 'discord-hono';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { parse } from 'yaml';
 import ky from 'ky';
 import getLanguageFromServer from './utils/getLanguageFromServer';
 import getFileFromLanguage from './utils/getFileFromLanguage';
