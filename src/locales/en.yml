@@ -1,9 +1,9 @@
-PERMISSIONS_ERROR: "<a:crossmark:1454281378295451648> **Unable to verify permissions.**"
-MENTION_EVERYONE_PERMISSION_MISSING: "<a:crossmark:1454281378295451648> **You need the Mention Everyone permission to use this command.**"
-GUILD_NOT_FOUND_ERROR: "<a:crossmark:1454281378295451648> **Guild not found.**"
-BOT_TOKEN_NOT_FOUND_ERROR: "<a:crossmark:1454281378295451648> **Bot token not found in .env**"
-NO_MEMBERS_ERROR: "<a:crossmark:1454281378295451648> **No members found.**"
-NO_MEMBERS_MATCH_FILTER_ERROR: "<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**"
-USER_ID_NOT_FOUND_ERROR: "<a:crossmark:1454281378295451648> **User ID not found.**"
-YOU_HAVE_BEEN_CHOSEN: "**<a:confetti:1437507874614939789> {{USER_ID}}, you have been chosen!**"
+PERMISSIONS_ERROR: '<a:crossmark:1454281378295451648> **Unable to verify permissions.**'
+MENTION_EVERYONE_PERMISSION_MISSING: '<a:crossmark:1454281378295451648> **You need the Mention Everyone permission to use this command.**'
+GUILD_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **Guild not found.**'
+BOT_TOKEN_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **Bot token not found in .env**'
+NO_MEMBERS_ERROR: '<a:crossmark:1454281378295451648> **No members found.**'
+NO_MEMBERS_MATCH_FILTER_ERROR: '<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**'
+USER_ID_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **User ID not found.**'
+YOU_HAVE_BEEN_CHOSEN: '**<a:confetti:1437507874614939789> {{USER_ID}}, you have been chosen!**'
 PING: "**<a:sparkles:1454282222210125959> Pong!** \n-# Latency: {{LATENCY}}ms"

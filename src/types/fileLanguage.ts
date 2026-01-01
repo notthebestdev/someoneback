@@ -1,0 +1,11 @@
+export interface FileLanguage {
+	PERMISSIONS_ERROR: string;
+	MENTION_EVERYONE_PERMISSION_MISSING: string;
+	GUILD_NOT_FOUND_ERROR: string;
+	BOT_TOKEN_NOT_FOUND_ERROR: string;
+	NO_MEMBERS_ERROR: string;
+	NO_MEMBERS_MATCH_FILTER_ERROR: string;
+	USER_ID_NOT_FOUND_ERROR: string;
+	YOU_HAVE_BEEN_CHOSEN: string;
+	PING: string;
+}
