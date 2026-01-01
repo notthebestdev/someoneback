@@ -2,36 +2,43 @@ import { DiscordHono } from 'discord-hono';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { parse } from 'yaml';
 import ky from 'ky';
+import getLanguageFromServer from './utils/getLanguageFromServer';
+import getFileFromLanguage from './utils/getFileFromLanguage';
+import type { FileLanguage } from './types/fileLanguage';
 
 const app = new DiscordHono()
 	.command('help', async (c) => {
-		const helpMessage = `**Available Commands:**
-- \`/someone [ignore-bots]\`: Ping a random member from the server. Optionally ignore bot users.
-- \`/ping\`: Replies with the current ping.
-- \`/help\`: Provides help information for available commands.
-
-To use a command, type \`/\` followed by the command name. For example, to ping a random member, type \`/someone\`. You can add the optional parameter \`ignore-bots\` to exclude bot users from being selected.
--# Source code is available on [GitHub](https://github.com/notthebestdev/someoneback).`;
+		const guildId = c.interaction.guild?.id as string;
+		let lang: FileLanguage = getFileFromLanguage('en') as FileLanguage;
+		await getLanguageFromServer(guildId, c).then((language) => {
+			lang = getFileFromLanguage(language) as FileLanguage;
+		});
+		const helpMessage = lang.HELP_MESSAGE;
 
 		return c.res(helpMessage);
 	})
 	.command('someone', async (c) => {
 		// check if user has permission to mention everyone
+		const guildId = c.interaction.guild?.id;
 		const memberPermissions = c.interaction.member?.permissions;
-		if (!memberPermissions) return c.res('<a:crossmark:1454281378295451648> **Unable to verify permissions.**');
+		if (!guildId) return c.res('<a:crossmark:1454281378295451648> **Guild not found.**');
+		let lang: FileLanguage = getFileFromLanguage('en') as FileLanguage;
+		await getLanguageFromServer(guildId, c).then((language) => {
+			lang = getFileFromLanguage(language) as FileLanguage;
+		});
+		if (!memberPermissions) return c.res(lang.PERMISSIONS_ERROR);
 
 		const hasMentionEveryonePermission = BigInt(memberPermissions) & BigInt(0x20000);
 		if (!hasMentionEveryonePermission) {
-			return c.res('<a:crossmark:1454281378295451648> **You need the Mention Everyone permission to use this command.**');
+			return c.res(lang.MENTION_EVERYONE_PERMISSION_MISSING);
 		}
 
 		// get guild id
-		const guildId = c.interaction.guild?.id;
-		if (!guildId) return c.res('<a:crossmark:1454281378295451648> **Guild not found.**');
+		if (!guildId) return c.res(lang.GUILD_NOT_FOUND);
 
 		const env = c.env as { DISCORD_TOKEN?: string };
 		const token = env.DISCORD_TOKEN || process.env.BOT_TOKEN;
-		if (!token) return c.res('<a:crossmark:1454281378295451648> **Bot token not found in env.**');
+		if (!token) return c.res(lang.BOT_TOKEN_NOT_FOUND_ERROR);
 
 		// fetch members, limit to 1000 due to discord api limitation
 		const resp = await ky.get(`https://discord.com/api/v10/guilds/${guildId}/members`, {
@@ -49,7 +56,7 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 			}
 		}
 		const allMembers = (await resp.json()) as Array<{ user?: { id?: string; username?: string; bot?: boolean } }>;
-		if (allMembers.length === 0) return c.res('<a:crossmark:1454281378295451648> **No members found.**');
+		if (allMembers.length === 0) return c.res(lang.NO_MEMBERS_ERROR);
 
 		// apply bot filter if requested and always exclude self
 		const selfId = c.interaction.member?.user?.id;
@@ -61,22 +68,26 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 			return true;
 		});
 
-		if (filtered.length === 0)
-			return c.res('<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**');
+		if (filtered.length === 0) return c.res(lang.NO_MEMBERS_MATCH_FILTER_ERROR);
 
 		// pick a random member
 		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
 		const userId = randomMember.user?.id;
-		if (!userId) return c.res('<a:crossmark:1454281378295451648> **User ID not found.**');
+		if (!userId) return c.res(lang.USER_ID_NOT_FOUND_ERROR);
 
-		return c.res(`**<a:confetti:1437507874614939789> <@${userId}>, you have been chosen!**`);
+		return c.res(lang.YOU_HAVE_BEEN_CHOSEN.replace('{{USER_ID}}', `<@${userId}>`));
 	})
 	.command('ping', async (c) => {
+		let lang: FileLanguage = getFileFromLanguage('en') as FileLanguage;
+		const guildId = c.interaction.guild?.id as string;
+		await getLanguageFromServer(guildId, c).then((language) => {
+			lang = getFileFromLanguage(language) as FileLanguage;
+		});
 		const start = Date.now();
 		await fetch('https://discord.com/api/v10/users/@me'); // yes, that was the only way I found to get a measurable latency, dont judge me please :D
 		const end = Date.now();
 		const latency = end - start;
-		return c.res(`**<a:sparkles:1454282222210125959> Pong!** \n-# Latency: ${latency}ms`);
+		return c.res(lang.PING.replace('{{LATENCY}}', latency.toString()));
 	});
 
 export default app;

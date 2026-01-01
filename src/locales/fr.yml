@@ -1,0 +1,18 @@
+PERMISSIONS_ERROR: '<a:crossmark:1454281378295451648> **Impossible de vérifier les permissions.**'
+MENTION_EVERYONE_PERMISSION_MISSING: '<a:crossmark:1454281378295451648> **Vous devez avoir la permission Mentionner tout le monde pour utiliser cette commande.**'
+GUILD_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **Serveur introuvable.**'
+BOT_TOKEN_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **Jeton du bot introuvable dans .env**'
+NO_MEMBERS_ERROR: '<a:crossmark:1454281378295451648> **Aucun membre trouvé.**'
+NO_MEMBERS_MATCH_FILTER_ERROR: '<a:crossmark:1454281378295451648> **Aucun membre ne correspond au filtre (tous les résultats étaient des bots ou vous-même).**'
+USER_ID_NOT_FOUND_ERROR: '<a:crossmark:1454281378295451648> **ID utilisateur introuvable.**'
+YOU_HAVE_BEEN_CHOSEN: '**<a:confetti:1437507874614939789> {{USER_ID}}, vous avez été choisi !**'
+PING: "**<a:sparkles:1454282222210125959> Pong !** \n-# Latence : {{LATENCY}}ms"
+GUILD_NOT_FOUND: '<a:crossmark:1454281378295451648> **Serveur introuvable.**'
+HELP_MESSAGE: |
+  **Commandes disponibles :**
+  - `/someone [ignore-bots]` : Mentionne un membre aléatoire du serveur. Optionnellement, ignore les utilisateurs bots.
+  - `/ping` : Répond avec la latence actuelle.
+  - `/help` : Fournit des informations d'aide sur les commandes disponibles.
+
+  Pour utiliser une commande, tapez `/` suivi du nom de la commande. Par exemple, pour mentionner un membre aléatoire, tapez `/someone`. Vous pouvez ajouter le paramètre optionnel `ignore-bots` pour exclure les bots de la sélection.
+  - Le code source est disponible sur [GitHub](https://github.com/notthebestdev/someoneback).

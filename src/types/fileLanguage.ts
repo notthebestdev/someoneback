@@ -8,4 +8,6 @@ export interface FileLanguage {
 	USER_ID_NOT_FOUND_ERROR: string;
 	YOU_HAVE_BEEN_CHOSEN: string;
 	PING: string;
+	GUILD_NOT_FOUND: string;
+	HELP_MESSAGE: string;
 }
