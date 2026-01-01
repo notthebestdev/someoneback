@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import type { FileLanguage } from '../types/fileLanguage';
 
-export default function getFileFromLanguage(language: string): unknown {
+export default function getFileFromLanguage(language: string): FileLanguage {
 	let fileName: string;
 	switch (language) {
 		case 'fr':
