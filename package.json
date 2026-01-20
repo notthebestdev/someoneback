@@ -13,7 +13,7 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.12.1",
+		"@cloudflare/vitest-pool-workers": "^0.12.4",
 		"@types/node": "^25.0.7",
 		"discord-api-types": "^0.38.37",
 		"husky": "^9.1.7",
