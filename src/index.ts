@@ -1,5 +1,5 @@
 import { DiscordHono } from 'discord-hono';
-
+import crypto from 'crypto';
 const app = new DiscordHono()
 	.command('help', async (c) => {
 		const helpMessage = `**Available Commands:**
@@ -60,8 +60,9 @@ To use a command, type \`/\` followed by the command name. For example, to ping 
 		if (filtered.length === 0)
 			return c.res('<a:crossmark:1454281378295451648> **No members match the filter (all results were bots or yourself).**');
 
-		// pick a random member
-		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
+		// pick a random member using cryptographically secure randomness (CVE-338 compliant)
+		const randomIndex = crypto.randomInt(filtered.length);
+		const randomMember = filtered[randomIndex];
 		const userId = randomMember.user?.id;
 		if (!userId) return c.res('<a:crossmark:1454281378295451648> **User ID not found.**');
 
