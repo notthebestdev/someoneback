@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.12.8",
 		"@types/node": "^25.2.0",
-		"discord-api-types": "^0.38.37",
+		"discord-api-types": "^0.38.38",
 		"husky": "^9.1.7",
 		"typescript": "^5.5.2",
 		"vitest": "^3.2.4",
