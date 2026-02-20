@@ -5,9 +5,9 @@
 <h1 align="center">SomeoneBack</h1>
 
 <p align="center">
- <a href="https://github.com/notthebestdev/someoneback/actions/workflows/release.yml">
-  <img src="https://github.com/notthebestdev/someoneback/actions/workflows/release.yml/badge.svg" alt="Release"/>
- </a>
+<a href="https://github.com/notthebestdev/someoneback/actions/workflows/deploy.yml">
+ <img src="https://github.com/notthebestdev/someoneback/actions/workflows/deploy.yml/badge.svg" alt="Deploy"/>
+</a>
  <img src="https://badges.ws/badge/?icon=typescript&value=typescript" alt="Language">
  <img src="https://badges.ws/github/l/notthebestdev/someoneback" alt="License"/>
  <img src="https://badges.ws/github/stars/notthebestdev/someoneback" alt="Stars"/>

@@ -4,6 +4,7 @@ import getLanguageFromServer from './utils/getLanguageFromServer';
 import getFileFromLanguage from './utils/getFileFromLanguage';
 import type { FileLanguage } from './types/fileLanguage';
 
+import crypto from 'crypto';
 const app = new DiscordHono()
 	.command('help', async (c) => {
 		const guildId = c.interaction.guild?.id as string;
@@ -68,8 +69,9 @@ const app = new DiscordHono()
 
 		if (filtered.length === 0) return c.res(lang.NO_MEMBERS_MATCH_FILTER_ERROR);
 
-		// pick a random member
-		const randomMember = filtered[Math.floor(Math.random() * filtered.length)];
+		// pick a random member using cryptographically secure randomness (CVE-338 compliant)
+		const randomIndex = crypto.randomInt(filtered.length);
+		const randomMember = filtered[randomIndex];
 		const userId = randomMember.user?.id;
 		if (!userId) return c.res(lang.USER_ID_NOT_FOUND_ERROR);
 
