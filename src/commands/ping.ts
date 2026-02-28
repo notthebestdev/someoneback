@@ -1,4 +1,4 @@
-import type { CommandContext } from "discord-hono";
+import type { CommandContext } from 'discord-hono';
 
 export const pingCommand = async (c: CommandContext) => {
 	const start = Date.now();

@@ -1,4 +1,4 @@
-import type { CommandContext } from "discord-hono";
+import type { CommandContext } from 'discord-hono';
 
 export const helpCommand = async (c: CommandContext) => {
 	const helpMessage = `**Available Commands:**
