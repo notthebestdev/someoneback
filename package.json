@@ -13,21 +13,21 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.12.16",
+		"@cloudflare/vitest-pool-workers": "^0.12.20",
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^25.3.0",
-		"discord-api-types": "^0.38.40",
-		"globals": "^17.3.0",
+		"@types/node": "^25.4.0",
+		"discord-api-types": "^0.38.41",
+		"globals": "^17.4.0",
 		"husky": "^9.1.7",
 		"typescript": "^5.5.2",
 		"vitest": "^3.2.4",
-		"wrangler": "^4.66.0"
+		"wrangler": "^4.71.0"
 	},
 	"dependencies": {
 		"discord-hono": "^0.20.3",
-		"eslint": "^10.0.1",
+		"eslint": "^10.0.3",
 		"jiti": "^2.6.1",
 		"prettier": "^3.8.1",
-		"typescript-eslint": "^8.56.1"
+		"typescript-eslint": "^8.57.0"
 	}
 }
