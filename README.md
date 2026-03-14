@@ -58,6 +58,6 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribut
 
 ### Credits <img src="/.github/assets/award.svg" align="left" width="24">
 
-**Icons**: [Lucide Icons](https://lucide.dev)
+- **Icons**: [Lucide Icons](https://lucide.dev)
 
-**Logo**: Originially taken by Discord's Thumbnail from [this video](https://www.youtube.com/watch?v=BeG5FqTpl9U) and edited by me.
+- **Logo**: Originially taken by Discord's Thumbnail from [this video](https://www.youtube.com/watch?v=BeG5FqTpl9U) and edited by me.
