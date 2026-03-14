@@ -51,3 +51,12 @@ npx wrangler secret put DISCORD_TOKEN
 npm run register
 npm run deploy
 ```
+
+### Contributing <img src="/.github/assets/heart.svg" align="left" width="24">
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+### Credits <img src="/.github/assets/award.svg" align="left" width="24">
+
+**Icons**: [Lucide Icons](https://lucide.dev)
+**Logo**: Originially taken by Discord's Thumbnail from [this video](https://www.youtube.com/watch?v=BeG5FqTpl9U) and edited by me.
