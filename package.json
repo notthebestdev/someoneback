@@ -17,14 +17,14 @@
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^25.5.2",
 		"discord-api-types": "^0.38.46",
-		"globals": "^17.4.0",
+		"globals": "^17.5.0",
 		"husky": "^9.1.7",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.0",
 		"wrangler": "^4.82.2"
 	},
 	"dependencies": {
-		"discord-hono": "^0.21.1",
+		"discord-hono": "^0.21.2",
 		"eslint": "^10.2.0",
 		"jiti": "^2.6.1",
 		"prettier": "^3.8.1",
