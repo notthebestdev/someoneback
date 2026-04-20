@@ -24,7 +24,7 @@
 		"wrangler": "^4.82.2"
 	},
 	"dependencies": {
-		"discord-hono": "^0.21.1",
+		"discord-hono": "^0.21.2",
 		"eslint": "^10.2.0",
 		"jiti": "^2.6.1",
 		"prettier": "^3.8.1",
