@@ -21,7 +21,7 @@
 		"husky": "^9.1.7",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.0",
-		"wrangler": "^4.84.0"
+		"wrangler": "^4.90.0"
 	},
 	"dependencies": {
 		"discord-hono": "^0.21.2",
