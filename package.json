@@ -13,7 +13,7 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.16.15",
+		"@cloudflare/vitest-pool-workers": "^0.16.18",
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^25.9.3",
 		"discord-api-types": "^0.38.48",
@@ -21,7 +21,7 @@
 		"husky": "^9.1.7",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.0",
-		"wrangler": "^4.100.0"
+		"wrangler": "^4.103.0"
 	},
 	"dependencies": {
 		"discord-hono": "^0.21.2",
