@@ -124,7 +124,7 @@ Please open a GitHub issue and include:
 
 Do not open public issues for vulnerabilities or sensitive data leaks.
 
-Send security reports to: <contact@justinn.dev>
+Send security reports to: contact [at] justinn.dev.
 
 ## Pull Request Checklist
 
