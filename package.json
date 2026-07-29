@@ -16,7 +16,7 @@
 		"@cloudflare/vitest-pool-workers": "^0.18.8",
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^26.1.2",
-		"discord-api-types": "^0.38.48",
+		"discord-api-types": "^0.38.52",
 		"globals": "^17.8.0",
 		"husky": "^9.1.7",
 		"typescript": "^7.0.2",
