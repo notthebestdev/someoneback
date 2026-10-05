@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.21.3",
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^26.6.2",
+		"@types/node": "^26.6.4",
 		"discord-api-types": "^0.38.52",
 		"globals": "^17.12.0",
 		"husky": "^9.1.7",
@@ -27,7 +27,7 @@
 		"discord-hono": "^0.22.2",
 		"eslint": "^10.11.0",
 		"jiti": "^2.7.0",
-		"prettier": "^3.9.6",
+		"prettier": "^3.9.9",
 		"typescript-eslint": "^8.70.1"
 	}
 }
