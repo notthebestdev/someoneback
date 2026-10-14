@@ -27,7 +27,7 @@
 		"discord-hono": "^0.22.2",
 		"eslint": "^10.11.0",
 		"jiti": "^2.7.0",
-		"prettier": "^3.9.9",
+		"prettier": "^3.9.10",
 		"typescript-eslint": "^8.70.1"
 	}
 }
