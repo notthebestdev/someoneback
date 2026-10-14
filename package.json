@@ -21,13 +21,13 @@
 		"husky": "^9.1.7",
 		"typescript": "^7.0.2",
 		"vitest": "^4.1.11",
-		"wrangler": "^4.135.0"
+		"wrangler": "^4.149.0"
 	},
 	"dependencies": {
 		"discord-hono": "^0.22.2",
 		"eslint": "^10.11.0",
 		"jiti": "^2.7.0",
-		"prettier": "^3.9.9",
+		"prettier": "^3.9.10",
 		"typescript-eslint": "^8.70.1"
 	}
 }
